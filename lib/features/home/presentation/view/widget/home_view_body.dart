@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_app_bar.dart';
+import 'package:bookly_app/features/home/presentation/view/widget/custom_list_view_Item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -12,7 +13,23 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [CustomAppBar()],
+      children: const [
+        CustomAppBar(),
+        FeaturesBooklyListView(),
+      ],
+    );
+  }
+}
+
+class FeaturesBooklyListView extends StatelessWidget {
+  const FeaturesBooklyListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return const FeaturesListViewItem();
+      },
     );
   }
 }
