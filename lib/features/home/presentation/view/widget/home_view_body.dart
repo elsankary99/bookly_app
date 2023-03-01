@@ -25,8 +25,38 @@ class HomeViewBody extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 16),
           child: Text('Best Seller', style: Style.meduimTitle),
-        )
+        ),
+        BestSellerListViewItem(),
       ],
+    );
+  }
+}
+
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        height: 120,
+        child: Row(
+          children: [
+            AspectRatio(
+                aspectRatio: 2.6 / 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.red,
+                      image: const DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(AssetsData.testImage),
+                      )),
+                )),
+          ],
+        ),
+      ),
     );
   }
 }
