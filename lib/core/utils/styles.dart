@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class Style {
-  static const meduimTitle = TextStyle(
+  static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
