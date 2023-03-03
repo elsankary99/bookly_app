@@ -1,6 +1,9 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/view/widget/best_seller_list_view_Item.dart';
+import 'package:bookly_app/features/home/presentation/view/widget/book_raiting.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -29,37 +32,41 @@ class BestSellerListViewItem extends StatelessWidget {
             const SizedBox(
               width: 30,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: const Text('Harry Boter and the Goblest of fire',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Style.textStyle20),
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                const Text(
-                  'J.K.Boweling',
-                  style: Style.textStyle14,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      r'19.99 $',
-                      style: Style.textStyle20.copyWith(
-                        fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: const Text('Harry Boter and the Goblest of fire',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Style.textStyle20),
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  const Text(
+                    'J.K.Boweling',
+                    style: Style.textStyle14,
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        r'19.99 $',
+                        style: Style.textStyle20.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      const BookRaiting(),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
