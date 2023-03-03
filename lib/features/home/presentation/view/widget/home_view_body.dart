@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/view/widget/Best_Seller_List_View_Item.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_list_view_Item.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/list_view_item.dart';
@@ -31,51 +32,6 @@ class HomeViewBody extends StatelessWidget {
         ),
         BestSellerListViewItem(),
       ],
-    );
-  }
-}
-
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SizedBox(
-        height: 120,
-        child: Row(
-          children: [
-            AspectRatio(
-              aspectRatio: 2.6 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.red,
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.testImage),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: const Text('Harry Boter and the Goblest of fire',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Style.textStyle20),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
     );
   }
 }
