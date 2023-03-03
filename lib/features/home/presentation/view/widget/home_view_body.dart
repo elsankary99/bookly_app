@@ -26,6 +26,9 @@ class HomeViewBody extends StatelessWidget {
           padding: EdgeInsets.only(left: 16),
           child: Text('Best Seller', style: Style.textStyle18),
         ),
+        SizedBox(
+          height: 20,
+        ),
         BestSellerListViewItem(),
       ],
     );
@@ -44,16 +47,32 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             AspectRatio(
-                aspectRatio: 2.6 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.red,
-                      image: const DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage(AssetsData.testImage),
-                      )),
-                )),
+              aspectRatio: 2.6 / 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.red,
+                  image: const DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(AssetsData.testImage),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: const Text('Harry Boter and the Goblest of fire',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Style.textStyle20),
+                ),
+              ],
+            )
           ],
         ),
       ),
