@@ -26,11 +26,13 @@ class BookDetailsViewBody extends StatelessWidget {
             children: const [
               CustomBookDetailsAppBar(),
               SizedBox(
-                height: 28,
+                height: 12,
               ),
               BookDeatailsSection(),
-              SizedBox(
-                height: 30,
+              Expanded(
+                child: SizedBox(
+                  height: 30,
+                ),
               ),
               SimlarBooksSection(),
               SizedBox(
@@ -41,8 +43,5 @@ class BookDetailsViewBody extends StatelessWidget {
         ),
       ],
     );
-    // return Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal: 25),
-    //   child: );
   }
 }

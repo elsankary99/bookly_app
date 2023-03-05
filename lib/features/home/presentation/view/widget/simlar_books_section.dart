@@ -11,7 +11,7 @@ class SimlarBooksSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 24),
           child: Text(
             'You Can Also Like',
             style: Style.textStyle14.copyWith(
