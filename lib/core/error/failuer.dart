@@ -8,7 +8,9 @@ abstract class Failuer {
 
 class ServerFailuer extends Failuer {
   ServerFailuer(super.errMessage);
-
+///////////////////
+  ///
+  ///
   factory ServerFailuer.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.connectionTimeout:
@@ -30,13 +32,14 @@ class ServerFailuer extends Failuer {
         return ServerFailuer('Request to api service was cancel ');
 
       case DioErrorType.connectionError:
+        return ServerFailuer('There was connection error ,please try later ');
+
+      case DioErrorType.unknown:
         if (dioError.message!.contains('SocketException')) {
           return ServerFailuer('No internet connection ');
         }
         return ServerFailuer('Unexpected error , please try again');
 
-      case DioErrorType.unknown:
-        return ServerFailuer('There was connection error ,please try later ');
       default:
         return ServerFailuer(' opps there was an error , please try againe  ');
     }
