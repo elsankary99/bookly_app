@@ -4,7 +4,7 @@ import 'package:bookly_app/features/home/presentation/view/widget/Best_Seller_Li
 import 'package:bookly_app/features/home/presentation/view/widget/best_seller_list_view.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_list_view_Item.dart';
-import 'package:bookly_app/features/home/presentation/view/widget/list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/view/widget/featuer_list_view_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
