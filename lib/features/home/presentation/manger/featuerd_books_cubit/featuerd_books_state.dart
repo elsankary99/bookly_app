@@ -19,6 +19,5 @@ class FeatuerdBooksFailuer extends FeatuerdBooksState {
 
 class FeatuerdBooksSuccess extends FeatuerdBooksState {
   final List<BookModel> books;
-
   const FeatuerdBooksSuccess(this.books);
 }
