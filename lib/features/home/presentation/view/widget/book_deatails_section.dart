@@ -1,11 +1,13 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/book_action.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/book_raiting.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_list_view_Item.dart';
 import 'package:flutter/material.dart';
 
 class BookDeatailsSection extends StatelessWidget {
-  const BookDeatailsSection({super.key});
+  const BookDeatailsSection({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +17,16 @@ class BookDeatailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.29),
-          child: const CustomBookImage(
-              imageUrl:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThN6klMPDt2TwOA3vG3-ZYnSc0RQF7Rskmbg&usqp=CAU'),
+          child: CustomBookImage(
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
         ),
         const SizedBox(
           height: 35,
         ),
-        const Text(
-          'The Jungel Book',
+        Text(
+          bookModel.volumeInfo.title!,
           style: Style.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
@@ -32,7 +34,7 @@ class BookDeatailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            'Rudyard Kipling',
+            bookModel.volumeInfo.authors?[0] ?? '',
             style: Style.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
             ),
@@ -41,8 +43,8 @@ class BookDeatailsSection extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const BookRaiting(
-          pageCount: 20,
+        BookRaiting(
+          pageCount: bookModel.volumeInfo.pageCount!,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
