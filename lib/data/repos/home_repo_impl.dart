@@ -1,13 +1,36 @@
 import 'package:bookly_app/core/utils/api_service.dart';
-import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/data/model/book_model/book_model.dart';
 import 'package:bookly_app/core/error/failuer.dart';
-import 'package:bookly_app/features/home/data/repos/home_repo.dart';
+import 'package:bookly_app/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+//!New
+final repoProvider = Provider<BookRepository>((ref) => BookRepository());
+
+class BookRepository {
+  final dio = Dio();
+
+  Future<List<BookModel>> fiendBooks(
+      {required String findBooks, int limit = 20, int page = 0}) async {
+    final res = await dio.get(
+      "https://www.googleapis.com/books/v1/volumes",
+      queryParameters: {
+        "q": findBooks,
+        "startIndex": page * 10,
+        "maxResults ": limit,
+        "Filtering": "free-ebooks"
+      },
+    );
+    final data = res.data["items"] as List;
+    return data.map((e) => BookModel.fromJson(e)).toList();
+  }
+}
+
+//? old
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
-
   HomeRepoImpl(this.apiService);
   @override
   Future<Either<Failuer, List<BookModel>>> fetchNewsetBooks() async {

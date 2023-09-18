@@ -1,12 +1,9 @@
 import 'package:bookly_app/core/utils/app_routers.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
-import 'package:bookly_app/features/home/presentation/view/widget/best_seller_list_view_Item.dart';
+import 'package:bookly_app/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/book_raiting.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/custom_list_view_Item.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
