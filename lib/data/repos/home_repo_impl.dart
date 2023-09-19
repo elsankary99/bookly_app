@@ -18,7 +18,21 @@ class BookRepository {
       "https://www.googleapis.com/books/v1/volumes",
       queryParameters: {
         "q": findBooks,
-        "startIndex": page * 10,
+        "startIndex": page,
+        "maxResults ": limit,
+        "Filtering": "free-ebooks"
+      },
+    );
+    final data = res.data["items"] as List;
+    return data.map((e) => BookModel.fromJson(e)).toList();
+  }
+
+  Future<List<BookModel>> newestBooks({int limit = 20, int page = 0}) async {
+    final res = await dio.get(
+      "https://www.googleapis.com/books/v1/volumes",
+      queryParameters: {
+        "q": "Apple",
+        "startIndex": page,
         "maxResults ": limit,
         "Filtering": "free-ebooks"
       },

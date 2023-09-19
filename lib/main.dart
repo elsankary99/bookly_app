@@ -6,11 +6,12 @@ import 'package:bookly_app/features/home/presentation/manger/featuerd_books_cubi
 import 'package:bookly_app/features/home/presentation/manger/newset_books_cubit/newset_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setupServerLocator();
-  runApp(const BooklyApp());
+  runApp(const ProviderScope(child: BooklyApp()));
 }
 
 class BooklyApp extends StatelessWidget {
